@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Live Feed</title>
+ 
+<style>
+#container {
+	margin: 0px auto;
+	width: 720px;
+	height: 360px;
+	border: 10px #333 solid;
+}
+#videoElement {
+	width: 720px;
+	height: 360px;
+	background-color: #666;
+}
+#controls {
+	margin: 0px auto;
+	width: 320px;
+	height: 160px;
+	
+}
+</style>
+
+</head>
+ 
+<body>
+<div id="container">
+	<video autoplay="true" id="videoElement">
+	
+	</video>
+</div>
+<div id="controls">
+			<a href="file:///%22/?moveup/%22/%22">
+			<button>Up</button></a> 
+          	<a href="file:///%22/?movedown/%22/%22">
+			<button>Down</button></a>
+		<a href="file:///%22/?moveleft/%22/%22">
+			<button>Left</button></a>
+          	<a href="file:///%22/?moveright/%22/%22">
+			<button>Right</button></a>
+</div>
+<script>
+var video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: { width: 720, height: 360 } })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+</script>
+
+
+</body></html>
